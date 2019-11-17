@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import axiosWithAuth, {setStorage, getId} from '../utils/axiosWithAuth'
 
 const LoginSignup = (props) => {
@@ -24,7 +24,7 @@ const LoginSignup = (props) => {
                 console.log(result)
                 setStorage({
                     name: 'id',
-                    value: result.data.newUsers != undefined ? result.data.newUsers.id : getId() 
+                    value: result.data.newUsers !== undefined ? result.data.newUsers.id : getId() 
                 }, {
                     name: 'token',
                     value: result.data.token
