@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import axiosWithAuth, {setStorage, getId} from '../utils/axiosWithAuth'
 
 const LoginSignup = (props) => {
+    const history = useHistory();
 
+    const [loginError, setLoginError] = useState(false);
     const [data, setData] = useState({
         username: '',
         password: ''
@@ -13,7 +16,7 @@ const LoginSignup = (props) => {
             ...data,
             [e.target.name]: e.target.value
         })
-    }
+    };
 
     const handleAuth = e => {
         e.preventDefault()
@@ -21,23 +24,25 @@ const LoginSignup = (props) => {
         axiosWithAuth()
             .post(path, data)
             .then(result => {
-                console.log(result)
                 setStorage({
                     name: 'id',
                     value: result.data.newUsers !== undefined ? result.data.newUsers.id : getId() 
                 }, {
                     name: 'token',
                     value: result.data.token
-                })
+                });
+                history.push('/articles');
             })
             .catch(error => {
-                console.log(error)
-            })
+                console.log(error);
+                setLoginError(true);
+            });
     }
 
     return (
         <>
         <form>
+            {loginError && <h3>Incorrect Credentials</h3>}
             <input type='username' name='username' placeholder='Username' value={data.username} onChange={handleChange} />
             <input type='password' name='password' placeholder='Password' value={data.password} onChange={handleChange} />
             <button type='submit' id='login' onClick={handleAuth}>Log In</button>
