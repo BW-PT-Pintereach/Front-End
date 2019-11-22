@@ -13,7 +13,8 @@ export default function (props) {
         <>
             <Route exact path='/' render={(props) => <LoginSignup {...props} />} />
             <PrivateRoute path='/articles' component={Articles}/>
-            <PrivateRoute path='/articles/:method' component={Modal} />
+            <PrivateRoute exact path='/articles/view/:id' component={Modal} />
+            <PrivateRoute exact path='/articles/:method' component={Modal} />
             <Route path='/form' component={FormikAddEdit} />
         </>
 

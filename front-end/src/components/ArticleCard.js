@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
+import Card from './styles/Card';
+
 function ArticleCard(props) {
 
     const deleteArticle = (e) => {
@@ -19,17 +21,19 @@ function ArticleCard(props) {
     }
 
     return (
-        <div>
-            <h2>{props.article.title}</h2>
-            <img src={props.article.image} alt={props.article.title} />
-            {/* <p>{props.article.summary}</p> */}
-            {/* <a href={props.article.link}>{props.article.link}</a> */}
+        <Card>
+            <NavLink to={{pathname: `/articles/view/${props.article.id}`, article: props.article}}>
+                <h2>{props.article.title}</h2>
+                <img src={props.article.image} alt={props.article.title} />
+                {/* <p>{props.article.summary}</p> */}
+                {/* <a href={props.article.link}>{props.article.link}</a> */}
 
-            {/* <button article_id={props.article.id} type="button" onClick={(e) => }>Edit</button> */}
+                {/* <button article_id={props.article.id} type="button" onClick={(e) => }>Edit</button> */}
+            </NavLink>
             <NavLink to={{ pathname: "/articles/edit", article: props.article }}>Edit</NavLink>
 
             <button article_id={props.article.id} type="button" onClick={(e) => deleteArticle(e)}>Delete</button>
 
-        </div>
+        </Card>
     )
 } export default ArticleCard;
