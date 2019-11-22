@@ -1,0 +1,32 @@
+{
+    "id": 100,
+    "title": "Biology",
+    "summary": "Biology is the natural science that studies life and living organisms, including their physical structure, chemical processes, molecular interactions, physiological mechanisms, development and evolution.",
+    "link": "https://en.wikipedia.org/wiki/Biology",
+    "image": "https://images.unsplash.com/photo-1570623354073-69b1cfcada12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60",
+    "user_id": 25,
+    "category_id": 100,
+    "category_name": "Biology"
+}
+
+{
+    "id": 101,
+    "title": "Chemistry",
+    "summary": "Chemistry is the scientific discipline involved with elements and compounds composed of atoms, molecules and ions: their composition, structure, properties, behavior and the changes they undergo during a reaction with other substances.",
+    "link": "https://en.wikipedia.org/wiki/Chemistry",
+    "image": "https://images.unsplash.com/photo-1554475901-4538ddfbccc2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60",
+    "user_id": 25,
+    "category_id": 101,
+    "category_name": "Chemistry"
+}
+
+{
+    "id": 102,
+    "title": "Physics",
+    "summary": "Physics is the natural science that studies matter, its motion and behavior through space and time, and that studies the related entities of energy and force.",
+    "link": "https://en.wikipedia.org/wiki/Physics",
+    "image": "https://images.unsplash.com/photo-1492962827063-e5ea0d8c01f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60",
+    "user_id": 25,
+    "category_id": 102,
+    "category_name": "Physics"
+}
