@@ -4,6 +4,10 @@ import SideBar from './SideBar';
 import ArticleCard from './ArticleCard';
 import { useHistory } from 'react-router-dom';
 
+import ArticlePage from './styles/ArticlePage';
+import ArticleCardsWrapper from './styles/ArticleCardsWrapper';
+import Card from './styles/Card';
+
 function Articles(props) {
     const [userArticles, setUserArticles] = useState([]);
     const [activeArticles, setActiveArticles] = useState([]);
@@ -27,16 +31,17 @@ function Articles(props) {
     }, [])
 
     return (
-        <div>
-            <SideBar articles={activeArticles} setActiveArticles={setActiveArticles} />
-            <div>
-                <div>
+        <ArticlePage>
+            <SideBar articles={activeArticles} setActiveArticles={setActiveArticles} permanentArticles={userArticles} />
+            <ArticleCardsWrapper>
+                <Card>
                     <h3>Add Article</h3>
                     <button onClick={() => history.push('/articles/add')}>+</button>
-                </div>
+                </Card>
                 {activeArticles.length > 0 && activeArticles.map(article => <ArticleCard key={article.id} article={article} setActiveArticles={setActiveArticles} activeArticles={activeArticles} />)}
-            </div>
-        </div>
+            </ArticleCardsWrapper>
+            {/* <button onClick={e => {localStorage.removeItem('token'); history.push('/')}}>Log Out</button> */}
+        </ArticlePage>
     )
 }
 export default Articles;

@@ -5,6 +5,8 @@ import axiosWithAuth, {setStorage, getId} from '../utils/axiosWithAuth'
 const LoginSignup = (props) => {
     const history = useHistory();
 
+    if(localStorage.getItem('token')) history.push('/articles')
+
     const [loginError, setLoginError] = useState(false);
     const [data, setData] = useState({
         username: '',
