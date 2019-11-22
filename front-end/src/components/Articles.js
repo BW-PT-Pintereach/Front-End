@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import ArticlePage from './styles/ArticlePage';
 import ArticleCardsWrapper from './styles/ArticleCardsWrapper';
 import Card from './styles/Card';
+import ArticlesHeaderDiv from './styles/ArticlesHeaderDiv'
 
 function Articles(props) {
     const [userArticles, setUserArticles] = useState([]);
@@ -34,6 +35,9 @@ function Articles(props) {
         <ArticlePage>
             <SideBar articles={activeArticles} setActiveArticles={setActiveArticles} permanentArticles={userArticles} />
             <ArticleCardsWrapper>
+            <ArticlesHeaderDiv>
+                <h2>Articles</h2>
+            </ArticlesHeaderDiv>
                 <Card>
                     <h3>Add Article</h3>
                     <button onClick={() => history.push('/articles/add')}>+</button>

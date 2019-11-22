@@ -11,7 +11,12 @@ export default styled.div`
     box-sizing: border-box;
     margin: 25px 0;
     padding: 5px 0;
+    color: #FAF189;
+    text-decoration: none;
 
+    h2 {
+        color: #FAF189;
+    }
 
     img {
         width: 88%;
