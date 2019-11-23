@@ -28,15 +28,12 @@ function ArticleCard(props) {
             <NavLink to={{ pathname: `/articles/view/${props.article.id}`, article: props.article }}>
                 <h2>{props.article.title}</h2>
                 <img src={props.article.image} alt={props.article.title} />
-                {/* <p>{props.article.summary}</p> */}
-                {/* <a href={props.article.link}>{props.article.link}</a> */}
-
-                {/* <button article_id={props.article.id} type="button" onClick={(e) => }>Edit</button> */}
+                
             </NavLink>
             <ArticleBtnWrapper>
                 <ArticleEditButton to={{ pathname: "/articles/edit", article: props.article }}>Edit</ArticleEditButton>
 
-                <button className="deleteButton" article_id={props.article.id} type="submit" onClick={(e) => deleteArticle(e)}>Delete</button>
+                <button className="deleteButton" article_id={props.article.id} onClick={(e) => deleteArticle(e)}>Delete</button>
             </ArticleBtnWrapper>
 
         </Card>
