@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axiosWithAuth, { setStorage, getId } from '../utils/axiosWithAuth'
+import axiosWithAuth, { setStorage, getId, decodeUserId } from '../utils/axiosWithAuth'
 
 import Logo from '../img/facebook_cover_photo_1.png';
 import LoginLogoImg from './styles/LoginLogoImg';
@@ -32,7 +32,7 @@ const LoginSignup = (props) => {
             .then(result => {
                 setStorage({
                     name: 'id',
-                    value: result.data.newUsers !== undefined ? result.data.newUsers.id : getId()
+                    value: result.data.newUsers !== undefined ? result.data.newUsers.id : decodeUserId(result.data.token)
                 }, {
                     name: 'token',
                     value: result.data.token
