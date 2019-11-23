@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 import Card from './styles/Card';
+import ArticleBtnWrapper from './styles/ArticleBtnWrapper';
+import ArticleEditButton from './styles/ArticleEditButton';
+import ArticleDeleteButton from './styles/ArticleDeleteButton';
 
 function ArticleCard(props) {
 
@@ -22,7 +25,7 @@ function ArticleCard(props) {
 
     return (
         <Card>
-            <NavLink to={{pathname: `/articles/view/${props.article.id}`, article: props.article}}>
+            <NavLink to={{ pathname: `/articles/view/${props.article.id}`, article: props.article }}>
                 <h2>{props.article.title}</h2>
                 <img src={props.article.image} alt={props.article.title} />
                 {/* <p>{props.article.summary}</p> */}
@@ -30,9 +33,11 @@ function ArticleCard(props) {
 
                 {/* <button article_id={props.article.id} type="button" onClick={(e) => }>Edit</button> */}
             </NavLink>
-            <NavLink to={{ pathname: "/articles/edit", article: props.article }}>Edit</NavLink>
+            <ArticleBtnWrapper>
+                <ArticleEditButton to={{ pathname: "/articles/edit", article: props.article }}>Edit</ArticleEditButton>
 
-            <button article_id={props.article.id} type="button" onClick={(e) => deleteArticle(e)}>Delete</button>
+                <button className="deleteButton" article_id={props.article.id} type="submit" onClick={(e) => deleteArticle(e)}>Delete</button>
+            </ArticleBtnWrapper>
 
         </Card>
     )

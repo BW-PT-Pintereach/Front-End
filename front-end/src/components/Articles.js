@@ -27,24 +27,26 @@ function Articles(props) {
 
             })
             .catch(error => {
-                console.log(error);
+
+                console.log('err', error);
             })
-    }, [])
+    }, [props.match.params.method])
 
     return (
         <ArticlePage>
             <SideBar articles={activeArticles} setActiveArticles={setActiveArticles} permanentArticles={userArticles} />
             <ArticleCardsWrapper>
-            <ArticlesHeaderDiv>
-                <h2>Articles</h2>
-            </ArticlesHeaderDiv>
+                <ArticlesHeaderDiv>
+                    <h2>Articles</h2>
+                    <button onClick={e => { localStorage.removeItem('token'); history.push('/') }}>Log Out</button>
+                </ArticlesHeaderDiv>
                 <Card>
                     <h3>Add Article</h3>
                     <button onClick={() => history.push('/articles/add')}>+</button>
                 </Card>
                 {activeArticles.length > 0 && activeArticles.map(article => <ArticleCard key={article.id} article={article} setActiveArticles={setActiveArticles} activeArticles={activeArticles} />)}
             </ArticleCardsWrapper>
-            {/* <button onClick={e => {localStorage.removeItem('token'); history.push('/')}}>Log Out</button> */}
+
         </ArticlePage>
     )
 }
