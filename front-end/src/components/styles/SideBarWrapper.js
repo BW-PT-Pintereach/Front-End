@@ -6,4 +6,7 @@ export default styled.div`
     flex-direction: column;
     background-color: #8E2735;
     color: #FAF189;
+    position: fixed;
+    height: 100%;
+    left: 0;
 `;
