@@ -44,7 +44,7 @@ const FormikAddEdit = withFormik({
                 .post('articles', values)
                 .then(result => {
                     console.log(result)
-                    window.location.replace('/articles')
+                    window.location = '/'
                 })
                 .catch(error => {
                     console.log(error)
@@ -54,7 +54,7 @@ const FormikAddEdit = withFormik({
                 .put(`articles/${FormikBag.props.article.id}`, values)
                 .then(result => {
                     console.log(result)
-                    window.location.replace('/articles');
+                    window.location = '/';
                 })
                 .catch(error => {
                     console.log(error)

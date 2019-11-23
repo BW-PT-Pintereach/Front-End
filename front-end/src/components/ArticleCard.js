@@ -18,7 +18,7 @@ function ArticleCard(props) {
                 props.setActiveArticles(
                     props.activeArticles.filter(article => article.id !== +e.target.getAttribute('article_id'))
                 )
-                window.location.replace('/articles');
+                window.location = '/';
             })
             .catch(err => console.log(err))
     }
@@ -28,7 +28,7 @@ function ArticleCard(props) {
             <NavLink to={{ pathname: `/articles/view/${props.article.id}`, article: props.article }}>
                 <h2>{props.article.title}</h2>
                 <img src={props.article.image} alt={props.article.title} />
-                
+
             </NavLink>
             <ArticleBtnWrapper>
                 <ArticleEditButton to={{ pathname: "/articles/edit", article: props.article }}>Edit</ArticleEditButton>
