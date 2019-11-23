@@ -5,7 +5,6 @@ export default styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 0px 20px;
 
     
 `;

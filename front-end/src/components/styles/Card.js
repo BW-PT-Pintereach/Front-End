@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default styled.div`
     width: 28%;
-    height: 60%;
+    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -20,9 +20,13 @@ export default styled.div`
         color: #FAF189;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     img {
-        width: 88%;
-        height: 75%;
+        width: 300px;
+        height: 200px;
         border-radius: 5px;
 
     }

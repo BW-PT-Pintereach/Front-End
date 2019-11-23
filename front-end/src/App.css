@@ -31,7 +31,6 @@
   }
   
   .deleteButton:hover {
-    background-color: rgba(250, 241, 137, 0.5);
-    color: #8e2735;
-    border: rgba(250, 241, 137, 0.5);
+    background-color: #FAF189;
+    color: #8E2735;
   }
