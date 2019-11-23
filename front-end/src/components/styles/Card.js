@@ -7,8 +7,10 @@ export default styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border: 2px solid black;
+    border: 3px solid #faf189;
+    border-radius: 10px;
     box-sizing: border-box;
+    background-color: #0A2239;
     margin: 25px 0;
     padding: 5px 0;
     color: #FAF189;
@@ -21,5 +23,7 @@ export default styled.div`
     img {
         width: 88%;
         height: 75%;
+        border-radius: 5px;
+
     }
 `
