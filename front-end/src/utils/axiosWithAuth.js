@@ -1,4 +1,5 @@
 import axios from 'axios'
+import jwtDecode from 'jwt-decode';
 
 export function getToken() {
     return localStorage.getItem('token')
@@ -11,6 +12,10 @@ export function getId() {
 export function setStorage(...args) {
     console.log(args, args.length)
     args.forEach(arg => localStorage.setItem(arg.name, arg.value))
+}
+
+export function decodeUserId(token){
+    return jwtDecode(token).subject;
 }
 
 export default function() {
