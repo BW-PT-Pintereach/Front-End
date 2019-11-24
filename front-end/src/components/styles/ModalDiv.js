@@ -7,7 +7,7 @@ export default styled.div`
     align-items: center;
     border: 1px solid black;
     background: #0A2239;
-    height: 45%;
+    height: fit-content;
     width: 33%;
 
     form {
