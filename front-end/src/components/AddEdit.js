@@ -1,41 +1,34 @@
-import React, {useContext} from 'react'
-import {CurrentArticleContext} from '../context/CurrentArticleContext';
+import React, {useContext} from 'react';
 import axiosWithAuth, { getId } from '../utils/axiosWithAuth';
-import { withFormik, Form, Field, FormikContext } from 'formik'
-import * as yup from 'yup'
-// import { useHistory } from 'react-router-dom';
+import { withFormik, Form, Field, FormikContext } from 'formik';
+import * as yup from 'yup';
 
-
-import AddEditField from './styles/AddEditField';
 import AddEditButton from './styles/AddEditButton';
+import AddEditForm from './styles/AddEditForm';
 
 const AddEdit = (props) => {
     console.log(props);
-    // props.article = article;
-    // const history = useHistory();
+
     return (
-        <Form>
-            {/* <Field name='article' value={article && article}></Field> */}
+        <AddEditForm>
             {props.touched.title && props.errors.title && <h4>{props.errors.title}</h4>}
-            <AddEditField placeholder='Title' name='title' type='text'></AddEditField>
+            <Field placeholder='Title' name='title' type='text'></Field>
             {props.touched.link && props.errors.link && <h4>{props.errors.link}</h4>}
-            <AddEditField placeholder='Link' name='link' /*value={props.article.link}*/ type='text'></AddEditField>
+            <Field placeholder='Link' name='link' type='text'></Field>
             {props.touched.image && props.errors.image && <h4>{props.errors.image}</h4>}
-            <AddEditField placeholder='Image URL' name='image' /*value={props.article.image}*/ type='text'></AddEditField>
+            <Field placeholder='Image URL' name='image' type='text'></Field>
             {props.touched.category_name && props.errors.category_name && <h4>{props.errors.category_name}</h4>}
-            <AddEditField placeholder='Category' name='category_name' /*value={props.article.category_name}*/ type='text'></AddEditField>
+            <Field placeholder='Category' name='category_name' type='text'></Field>
             {props.touched.summary && props.errors.summary && <h4>{props.errors.summary}</h4>}
-            <AddEditField placeholder='Summary' name='summary' /*value={props.article.summary}*/ as='textarea'></AddEditField>
-            <AddEditButton>{`${props.method} Article`}</AddEditButton>
-        </Form>
+            <Field placeholder='Summary' name='summary' as="textarea"></Field>
+            <AddEditButton>{`${props.method.toLowerCase() === 'edit' ? 'Update' : 'Add'} Article`}</AddEditButton>
+        </AddEditForm>
     )
 }
 
-// title, summary, link, image, category_name }, 
 
 const FormikAddEdit = withFormik({
     mapPropsToValues(props) {
-        console.log(props);
         return {
             title: props.title || props.article ? props.article.title : '',
             link: props.link || props.article ? props.article.link : '',
@@ -47,7 +40,6 @@ const FormikAddEdit = withFormik({
     },
     handleSubmit(values, FormikBag) {
         const method = FormikBag.props.method.toLowerCase() === 'add' ? 'post' : 'put'
-        console.log(FormikBag)
         if (method === 'post') {
             axiosWithAuth()
                 .post('articles', values)
@@ -69,7 +61,6 @@ const FormikAddEdit = withFormik({
                     console.log(error)
                 })
         }
-        console.log(method)
     },
     validationSchema: yup.object().shape({
         title: yup.string().required().max(36, 'Title must be less than 36 characters'),
