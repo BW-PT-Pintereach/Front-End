@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default styled.div`
     width: 28%;
-    height: 40%;
+    /* height: 40%; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -25,9 +25,15 @@ export default styled.div`
     }
 
     img {
-        width: 300px;
+        width: 95%; /** originally 200px squeezed border out of view **/
         height: 200px;
         border-radius: 5px;
 
     }
+
+    h3 {
+        font-size: 1.8em;
+    }
+
+    
 `

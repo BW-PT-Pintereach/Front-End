@@ -1,3 +1,9 @@
+  /** red background color for all pages through body line **/
+  
+  body {
+    background: #8E2735;
+  }
+  
   .App {
     text-align: center;
   }
