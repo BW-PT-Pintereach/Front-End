@@ -4,13 +4,13 @@ import SideBarWrapper from './styles/SideBarWrapper';
 import SideBarArticlesBtn from './styles/SideBarArticlesBtn';
 
 const SideBar = (props) => {
-    const categories = props.articles.reduce((runningArray, category) => runningArray.includes(category.category_name) ? [...runningArray] : [...runningArray, category.category_name], [])
+    const categories = props.permanentArticles.reduce((runningArray, category) => runningArray.includes(category.category_name) ? [...runningArray] : [...runningArray, category.category_name], []);
 
     const filterArticles = query => {
         query = query.toLowerCase();
         console.log(query, props.articles)
-        query === 'all' ? props.setActiveArticles(props.permanentArticles) : props.setActiveArticles(props.articles.filter(article => article.category_name.toLowerCase() === query));
-    }
+        query === 'all' ? props.setActiveArticles(props.permanentArticles) : props.setActiveArticles(props.permanentArticles.filter(article => article.category_name.toLowerCase() === query));
+    };
 
     return (
         <SideBarWrapper>
@@ -19,7 +19,7 @@ const SideBar = (props) => {
             </div>
             {categories.length >= 1 && ['All', ...categories].map(category => <SideBarArticlesBtn key={category} onClick={(e) => filterArticles(e.target.innerText)}>{category}</SideBarArticlesBtn>)}
         </SideBarWrapper>
-    )
+    );
 };
 
 export default SideBar;
