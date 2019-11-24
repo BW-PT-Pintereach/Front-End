@@ -9,4 +9,5 @@ export default styled.div`
     position: fixed;
     height: 100%;
     left: 0;
+    border-right: 2px solid black;
 `;

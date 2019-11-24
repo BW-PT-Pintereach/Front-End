@@ -6,7 +6,7 @@ export default styled.div`
     justify-content: space-around;
     align-items: center;
     border: 1px solid black;
-    background: lightgrey;
+    background: #0A2239;
     height: 45%;
     width: 33%;
 

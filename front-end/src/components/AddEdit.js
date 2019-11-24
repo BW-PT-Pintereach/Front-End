@@ -1,24 +1,28 @@
 import React from 'react'
 import axiosWithAuth, { getId } from '../utils/axiosWithAuth';
-import { withFormik, Form, Field } from 'formik'
+import { withFormik, Form } from 'formik'
 import * as yup from 'yup'
 // import { useHistory } from 'react-router-dom';
+
+
+import AddEditField from './styles/AddEditField';
+import AddEditButton from './styles/AddEditButton';
 
 const AddEdit = (props) => {
     // const history = useHistory();
     return (
         <Form>
             {props.touched.title && props.errors.title && <h4>{props.errors.title}</h4>}
-            <Field placeholder='Title' name='title' type='text'></Field>
+            <AddEditField placeholder='Title' name='title' type='text'></AddEditField>
             {props.touched.link && props.errors.link && <h4>{props.errors.link}</h4>}
-            <Field placeholder='Link' name='link' /*value={props.article.link}*/ type='text'></Field>
+            <AddEditField placeholder='Link' name='link' /*value={props.article.link}*/ type='text'></AddEditField>
             {props.touched.image && props.errors.image && <h4>{props.errors.image}</h4>}
-            <Field placeholder='Image URL' name='image' /*value={props.article.image}*/ type='text'></Field>
+            <AddEditField placeholder='Image URL' name='image' /*value={props.article.image}*/ type='text'></AddEditField>
             {props.touched.category_name && props.errors.category_name && <h4>{props.errors.category_name}</h4>}
-            <Field placeholder='Category' name='category_name' /*value={props.article.category_name}*/ type='text'></Field>
+            <AddEditField placeholder='Category' name='category_name' /*value={props.article.category_name}*/ type='text'></AddEditField>
             {props.touched.summary && props.errors.summary && <h4>{props.errors.summary}</h4>}
-            <Field placeholder='Summary' name='summary' /*value={props.article.summary}*/ as='textarea'></Field>
-            <button>{`${props.method} Article`}</button>
+            <AddEditField placeholder='Summary' name='summary' /*value={props.article.summary}*/ as='textarea'></AddEditField>
+            <AddEditButton>{`${props.method} Article`}</AddEditButton>
         </Form>
     )
 }

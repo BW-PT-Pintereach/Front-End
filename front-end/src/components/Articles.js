@@ -8,6 +8,7 @@ import ArticlePage from './styles/ArticlePage';
 import ArticleCardsWrapper from './styles/ArticleCardsWrapper';
 import Card from './styles/Card';
 import ArticlesHeaderDiv from './styles/ArticlesHeaderDiv'
+import ArticlesCardButton from './styles/ArticlesCardButton';
 
 function Articles(props) {
     const [userArticles, setUserArticles] = useState([]);
@@ -42,7 +43,7 @@ function Articles(props) {
                 </ArticlesHeaderDiv>
                 <Card>
                     <h3>Add Article</h3>
-                    <button onClick={() => history.push('/articles/add')}>+</button>
+                    <ArticlesCardButton onClick={() => history.push('/articles/add')}>+</ArticlesCardButton>
                 </Card>
                 {activeArticles.length > 0 && activeArticles.map(article => <ArticleCard key={article.id} article={article} setActiveArticles={setActiveArticles} activeArticles={activeArticles} />)}
             </ArticleCardsWrapper>
