@@ -1,14 +1,16 @@
 import React from 'react';
 
+import ViewArticleWrapper from './styles/ViewArticleWrapper';
+import ViewArticleImg from './styles/ViewArticleImg';
 
 const ViewArticle = props => {
     return (
-        <div>
+        <ViewArticleWrapper>
             <h1>{props.article.title}</h1>
-            <img src={props.article.image} alt={props.article.title} />
+            <ViewArticleImg src={props.article.image} alt={props.article.title} />
             <p>{props.article.summary}</p>
             <a href={props.article.link}>Link to Article</a>
-        </div>
+        </ViewArticleWrapper>
     );
 };
 

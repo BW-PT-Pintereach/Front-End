@@ -4,6 +4,7 @@ import ViewArticle from './ViewArticle';
 
 import ModalWrapper from './styles/ModalWrapper';
 import ModalDiv from './styles/ModalDiv';
+import ModalExitButton from './styles/ModalExitButton';
 
 const Modal = (props) => {
     const article = props.location.article;
@@ -12,7 +13,7 @@ const Modal = (props) => {
     return (
         <ModalWrapper id="modal-wrapper" onClick={e => window.location = "/"}>
             <ModalDiv onClick={e => e.stopPropagation()}>
-                <button onClick={() => window.location = '/'} style={{alignSelf: 'flex-end'}}>X</button>
+                <ModalExitButton onClick={() => window.location = '/'} style={{ alignSelf: 'flex-end' }}>X</ModalExitButton>
                 {viewingArticle ? <ViewArticle article={props.location.article} /> : <FormikAddEdit article={article} method={`${method[0].toUpperCase()}${method.slice(1)}`} />}
             </ModalDiv>
         </ModalWrapper>

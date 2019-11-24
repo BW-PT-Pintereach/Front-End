@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axiosWithAuth, { setStorage, getId, decodeUserId } from '../utils/axiosWithAuth'
+import axiosWithAuth, { setStorage, decodeUserId } from '../utils/axiosWithAuth'
 
 import Logo from '../img/facebook_cover_photo_1.png';
 import LoginLogoImg from './styles/LoginLogoImg';
 import LoginSignupWrapper from './styles/LoginSignupWrapper';
+import LoginForm from './styles/LoginForm';
 
 const LoginSignup = (props) => {
     const history = useHistory();
@@ -48,13 +49,13 @@ const LoginSignup = (props) => {
     return (
         <LoginSignupWrapper>
             <LoginLogoImg src={Logo} alt="Pintereach Logo" />
-            <form>
+            <LoginForm>
                 {loginError && <h3>Incorrect Credentials</h3>}
                 <input type='username' name='username' placeholder='Username' value={data.username} onChange={handleChange} />
                 <input type='password' name='password' placeholder='Password' value={data.password} onChange={handleChange} />
                 <button type='submit' id='login' onClick={handleAuth}>Log In</button>
                 <button type='submit' id='register' onClick={handleAuth}>Sign Up</button>
-            </form>
+            </LoginForm>
 
 
         </LoginSignupWrapper>
