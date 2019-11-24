@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {CurrentArticleContext} from '../context/CurrentArticleContext';
 import FormikAddEdit from './AddEdit'
 import ViewArticle from './ViewArticle';
 
@@ -7,7 +8,7 @@ import ModalDiv from './styles/ModalDiv';
 import ModalExitButton from './styles/ModalExitButton';
 
 const Modal = (props) => {
-    const article = props.location.article;
+    const [article, setArticle] = useContext(CurrentArticleContext)
     const method = props.match.params.method;
     const viewingArticle = props.location.pathname.split('/').includes('view');
     return (

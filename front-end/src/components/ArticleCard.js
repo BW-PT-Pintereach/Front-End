@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {CurrentArticleContext} from '../context/CurrentArticleContext';
 import { NavLink } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
-
 import Card from './styles/Card';
 import ArticleBtnWrapper from './styles/ArticleBtnWrapper';
 import ArticleEditButton from './styles/ArticleEditButton';
 
 
 function ArticleCard(props) {
-
+    const [article, setArticle] = useContext(CurrentArticleContext);
     const deleteArticle = (e) => {
         e.persist();
         axiosWithAuth().delete(`articles/${e.target.getAttribute('article_id')}`)
@@ -31,8 +31,7 @@ function ArticleCard(props) {
 
             </NavLink>
             <ArticleBtnWrapper>
-                <ArticleEditButton to={{ pathname: "/articles/edit", article: props.article }}>Edit</ArticleEditButton>
-
+                <ArticleEditButton onClick={() => setArticle(props.article)} to= '/articles/edit'>Edit</ArticleEditButton>
                 <button className="deleteButton" article_id={props.article.id} onClick={(e) => deleteArticle(e)}>Delete</button>
             </ArticleBtnWrapper>
 

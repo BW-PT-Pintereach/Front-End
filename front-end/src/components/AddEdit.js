@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {CurrentArticleContext} from '../context/CurrentArticleContext';
 import axiosWithAuth, { getId } from '../utils/axiosWithAuth';
-import { withFormik, Form } from 'formik'
+import { withFormik, Form, Field, FormikContext } from 'formik'
 import * as yup from 'yup'
 // import { useHistory } from 'react-router-dom';
 
@@ -9,9 +10,12 @@ import AddEditField from './styles/AddEditField';
 import AddEditButton from './styles/AddEditButton';
 
 const AddEdit = (props) => {
+    console.log(props);
+    // props.article = article;
     // const history = useHistory();
     return (
         <Form>
+            {/* <Field name='article' value={article && article}></Field> */}
             {props.touched.title && props.errors.title && <h4>{props.errors.title}</h4>}
             <AddEditField placeholder='Title' name='title' type='text'></AddEditField>
             {props.touched.link && props.errors.link && <h4>{props.errors.link}</h4>}
@@ -31,6 +35,7 @@ const AddEdit = (props) => {
 
 const FormikAddEdit = withFormik({
     mapPropsToValues(props) {
+        console.log(props);
         return {
             title: props.title || props.article ? props.article.title : '',
             link: props.link || props.article ? props.article.link : '',

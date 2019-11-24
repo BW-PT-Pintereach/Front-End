@@ -16,6 +16,8 @@ export default styled.div`
     a {
         padding: 10px;
         margin-bottom: 10px;
+        color: #FAF189;
+        font-size: 1.5em;
     }
     
 `;
