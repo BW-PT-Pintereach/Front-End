@@ -10,4 +10,4 @@ Pintereach is Pinterest for Researchers. It is a platform that gives users Board
 
 ## Tech Stack
 
-Pintereach is a React app that interfaces with a Node backend. We also use Formik, Yup, and many other dependencies (check out [package.json!](frontend/package.json)).
+Pintereach is a React app that interfaces with a Node backend. We also use Formik, Yup, and many other dependencies (check out [package.json!](front-end/package.json)).
